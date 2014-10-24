@@ -1,0 +1,4 @@
+<select class="form-control" ng-model="associate" name="{{ sname }}" ng-required="{{ required }}" ng-change="change()">
+  <option value="" ng-if="$blank !== 'false'">{{ $blank }}</option>
+  <option ng-repeat="item in list" value="{{ item[$key] }}">{{ item[$label] }}</option>
+</select>

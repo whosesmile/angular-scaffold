@@ -1,0 +1,59 @@
+html, body { font-family: "Microsoft Yahei", STHeiti, Arial, Tahoma, Helvetica; }
+select, textarea, optgroup, input, option, button { font-family: inherit; }
+input[type='password'] { font-family: sans-serif; }
+input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty { border-color: #5cb85c; }
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty { border-color: #e40; }
+.input-group.ng-valid.ng-dirty .input-group-addon { color: #449d44; border-color: #5cb85c; }
+.input-group.ng-invalid.ng-dirty .input-group-addon { color: #a94442; border-color: #e40; }
+.input-group-addon { background-color: #f9f9f9; }
+.growl { top: 50px; z-index: 9999; left: 50%; margin-left: -125px; }
+.growl .alert { padding: 10px; text-align: center; }
+.growl .alert-success .close { display: none; }
+i { font-style: normal; }
+a { color: #4fbbf1; }
+*[ng-cloak] { display: none !important; }
+/* --- */
+.mr10 { margin-right: 10px !important; }
+.ml10 { margin-left: 10px !important; }
+.mt10 { margin-top: 10px !important; }
+.mb10 { margin-bottom: 10px !important; }
+.page-header { margin-top: 0; }
+.page-header h1 { font-size: 20px; font-weight: normal; margin-top: 10px; border-left: 2px solid #f49700; padding-left: 10px; }
+.filter .form-inline .form-group { float: left; }
+.filter .control-label { text-align: right; }
+.filter .format-label-6 .control-label { min-width: 85px; }
+.loading-holder { padding: 50px !important; background: #fff; }
+.loading { display: inline-block; width: 24px; height: 24px; vertical-align: bottom; background: transparent url(../img/loading.gif) center 0 no-repeat; }
+.loading-sm { display: inline-block; width: 24px; height: 16px; vertical-align: bottom; background: transparent url(../img/loading-sm.gif) center 0 no-repeat; }
+/* --- */
+body.layout { background: #fff url(../img/bg.png) 0 0 repeat-y; }
+#header { position: fixed; top: 0; left: 0; right: 0; width: 100%; height: 42px; color: #fff; z-index: 10; font-size: 13px; box-shadow: 0 1px 2px rgba(0, 0, 0, .35); background-color: #23b7e5; background-image: -webkit-linear-gradient(left, #23b7e5 0, #51c6ea 100%); background-image: linear-gradient(to right, #23b7e5 0, #51c6ea 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff23b7e5', endColorstr='#ff51c6ea', GradientType=1); }
+#header .logo { width: 30px; }
+#header .brand { padding: 7px 0 0; text-decoration: none; color: #fff; font-size: 18px; }
+#header .settings .link-white { display: inline-block; padding: 10px 0; color: #FFF !important; text-decoration: none !important; }
+#header .settings .name { display: inline-block; min-width: 30px; }
+#header .settings .dropdown-menu { margin-top: 15px; border-radius: 0 0 4px 4px; border-color: #CCC; }
+#header .settings .dropdown-menu>li>a { padding: 5px 10px; }
+#header .settings .dropdown-menu>li>a i { margin-right: 5px; }
+#content { margin-top: 42px; }
+#content .sidebar { float: left; width: 220px; background: #f4f4f4; padding-top: 18px; }
+#content .sidebar .menus { font-size: 14px; }
+#content .sidebar .menus i { margin-right: 10px; font-size: 16px; line-height: 20px; }
+#content .sidebar .menus a { padding: 10px 0 10px 15px; display: block; text-decoration: none; color: #333; }
+#content .sidebar .menus a:hover { background: #fff; color: #23B7E5; }
+#content .sidebar .menus li { padding-left: 2px; border-bottom: 1px solid #e6e6e6; }
+#content .sidebar .menus > li.active { padding-left: 0; border-left: 2px solid #23B7E5; background: #fff; }
+#content .sidebar .menus .sub-menu { display: none; }
+#content .sidebar .menus .sub-menu a { padding: 8px 0 8px 40px; }
+#content .sidebar .menus .active .sub-menu { display: block; border-top: 1px solid #eee; }
+#content .sidebar .menus .active .sub-menu li { border-color: #eee; }
+#content .sidebar .menus .active .sub-menu li:last-child { border-bottom: none; }
+#content .sidebar .menus .active .sub-menu li.active a { }
+#content .main { margin-left: 220px; padding: 10px 20px 20px; overflow: hidden; }
+#content .main .filter { margin-bottom: 17px; }
+#content .main .table th { color: #999; border-top: 1px solid #ddd !important; }
+#content .main .table td { border-bottom: 1px solid #ddd; }
+#content .main .pagination, #content .main .pagination-sm { margin-top: 0; }
+#content .main .filter .form-control { width: 180px; }
+#content .main .filter .input-group .form-control { width: 144px; }
+#content .main .filter .submit-group { text-align: right; width: 265px; }

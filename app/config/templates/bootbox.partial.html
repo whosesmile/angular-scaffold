@@ -1,0 +1,5 @@
+<div class="modal-body" ng-bind-html="message|safe"></div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="confirm()">确定</button>
+  <button class="btn btn-default" ng-click="$dismiss()" ng-if="type === 'confirm'">取消</button>
+</div>

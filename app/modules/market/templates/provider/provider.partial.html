@@ -1,0 +1,99 @@
+<div class="modal-header">
+  <a class="close" ng-click="$dismiss()">&times;</a>
+  <h4 class="modal-title">{{ title }}</h4>
+</div>
+<div class="modal-body modal-body-fixed-height">
+  <form class="form-horizontal" name="form">
+    <!--
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><i class="text-danger">*</i> 类型：</label>
+      <div class="col-sm-7">
+        <select class="form-control" ng-model="entity.type" ng-options="providerType.type as providerType.type for providerType in providerTypes" >
+          <option value="">请选择</option>
+        </select>
+      </div>
+    </div>
+    -->
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><i class="text-danger">*</i> 供应商名称：</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" placeholder="请输入供方名称" ng-model="entity.name" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><i class="text-danger">*</i> 联系人：</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" placeholder="请输入联系人" ng-model="entity.contact" required />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><i class="text-danger">*</i> 联系电话：</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" placeholder="请输入联系电话" ng-model="entity.phone" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">是否提供银行账号
+        <span style="color:red;">*</span>
+      </label>
+      <div class="col-sm-7">
+        <label class="radio-inline">
+          <input type="radio" name="entity.providerBankAc" ng-model="entity.providerBankAc" id="inlineRadio1" value="1"> 是
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="entity.providerBankAc" ng-model="entity.providerBankAc" id="inlineRadio2" value="0" checked> 否
+        </label>
+      </div>
+    </div>
+    <div class="form-group" ng-show="entity.providerBankAc">
+      <label class="col-sm-3 control-label">银行账号<span style="color:red;">*</span></label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" name="bankacno" ng-model="entity.bankacno" placeholder="请输入银行账号" ng-required="bankacnoReq">
+      </div>
+    </div>
+
+    <div class="form-group" ng-show="entity.providerBankAc">
+      <label class="col-sm-3 control-label">开户人<span style="color:red;">*</span></label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" name="bankacholder" ng-model="entity.bankacholder" placeholder="请输入开户人"  ng-required="bankacholderReq">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">是否提供发票
+        <span style="color:red;">*</span>
+      </label>
+      <div class="col-sm-7">
+        <label class="radio-inline">
+          <input type="radio" name="entity.providerInvoice" ng-model="entity.providerInvoice" id="inlineRadio1" value="1"> 是
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="entity.providerInvoice" ng-model="entity.providerInvoice" id="inlineRadio2" value="0" checked> 否
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">是否签署合同
+        <span style="color:red;">*</span>
+      </label>
+      <div class="col-sm-7">
+        <label class="radio-inline">
+          <input type="radio" name="entity.signcontract" ng-model="entity.signcontract" id="inlineRadio1" value="1"> 是
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="entity.signcontract" ng-model="entity.signcontract" id="inlineRadio2" value="0" checked> 否
+        </label>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="confirm()" ng-disabled="form.$invalid || processing">
+    <span ng-if="!processing">确定</span>
+    <span ng-if="processing">处理中...</span>
+  </button>
+  <button class="btn btn-default" ng-click="$dismiss()">取消</button>
+</div>

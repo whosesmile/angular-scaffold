@@ -1,0 +1,83 @@
+<div class="account-module">
+  <div class="page-header">
+    <h1>用户管理</h1>
+  </div>
+  <div class="filter clearfix">
+    <div class="row">
+      <div class="col-sm-9">
+        <form class="form-inline" ng-submit="query()">
+          <div class="form-group mb10 mr10">
+            <label class="control-label text-normal text-nowrap">账号：</label>
+            <input type="text" class="form-control" placeholder="请输入账号" ng-model="name" />
+          </div>
+          <div class="form-group mb10 mr10">
+            <label class="control-label text-normal text-nowrap">姓名：</label>
+            <input type="text" class="form-control" placeholder="请输入姓名" ng-model="nick" />
+          </div>
+          <div class="form-group mb10 mr10">
+            <label class="control-label text-normal text-nowrap">状态：</label>
+            <select class="form-control" ng-model="status">
+              <option value="">全部</option>
+              <option value="1">启用</option>
+              <option value="0">停用</option>
+            </select>
+          </div>
+          <div class="mb10 mr10">
+            <button type="submit" class="btn btn-primary ml10" ng-disabled="form.$invalid">
+              <i class="fa fa-search"></i> 搜索
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-3 text-right">
+        <a class="btn btn-success" ng-click="create()"><i class="fa fa-plus"></i> 添加</a>
+      </div>
+
+    </div>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>账号</th>
+        <th>姓名</th>
+        <th>更新人</th>
+        <th>更新时间</th>  
+        <th>状态</th>     
+        <th class="text-right">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="loading">
+        <td class="loading-holder" colspan="40">
+          <div class="text-center"><span class="loading"></span></div>
+        </td>
+      </tr>
+      <tr ng-if="total === 0">
+        <td colspan="40">
+          <div class="text-center">抱歉，没有相关数据</div>
+        </td>
+      </tr>
+      <tr ng-repeat="item in list">
+        <td>{{ item.name }}</a></td>
+        <td>{{ item.nick }}</td>
+        <td>{{ item.update_by  }}</td>
+        <td>{{ item.update_at|date:'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td ng-class="{'text-danger': item.status === 'stopped'}">{{ item.status|status }}</td>
+        <td class="text-right">
+          <a href="" ng-click="toggle(item)" ng-if="!item.processing">{{ item.status|status:true }}</a>
+          <i class="text-divider">|</i>
+          <a href="" ng-click="update(item)">修改</a>
+          <i class="text-divider">|</i>
+          <a href="" ng-click="resetPassword(item)">重置密码</a>
+          <i class="text-divider">|</i>
+          <a href="" ng-click="remove(item)" ng-if="!item.deleting">删除</a>
+          <span class="loading-sm" ng-if="item.deleting"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-right" ng-show="!(list|empty)">
+    <ul class="pagination-sm" pagination ng-model="page" items-per-page="size" total-items="total" ng-change="query()"></ul>
+  </div>
+</div>

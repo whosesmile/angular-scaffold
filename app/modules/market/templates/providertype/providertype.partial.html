@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <a class="close" ng-click="$dismiss()">&times;</a>
+  <h4 class="modal-title">{{ title }}</h4>
+</div>
+<div class="modal-body modal-body-fixed-height">
+  <form class="form-horizontal" name="form">
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><i class="text-danger">*</i> 供方类型名称：</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" placeholder="请输入供方类型名称" ng-model="entity.name" required />
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="confirm()" ng-disabled="form.$invalid || processing">
+  <span ng-if="!processing">确定</span>
+  <span ng-if="processing">处理中...</span>
+  </button>
+  <button class="btn btn-default" ng-click="$dismiss()">取消</button>
+</div>

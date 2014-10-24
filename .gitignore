@@ -1,9 +1,4 @@
-# Ignore docs files
-_gh_pages
-_site
-.ruby-version
-
-# Numerous always-ignore extensions
+*~
 *.diff
 *.err
 *.orig
@@ -13,12 +8,10 @@ _site
 *.swp
 *.zip
 *.vi
-*~
-
-# OS or Editor folders
+.svn
+.ruby-version
 .DS_Store
 ._*
-Thumbs.db
 .cache
 .project
 .settings
@@ -28,17 +21,14 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .idea
-
-# Komodo
 *.komodoproject
 .komodotools
-
-# grunt-html-validation
+Thumbs.db
 validation-status.json
 validation-report.json
-
-# Folders to ignore
 node_modules
 bower_components
 public
 temp
+_gh_pages
+_site

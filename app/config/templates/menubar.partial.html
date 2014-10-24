@@ -1,0 +1,18 @@
+<ul class="menus list-unstyled">
+  <li>
+    <a ui-sref="home">
+      <i class="fa fa-home"></i>菜单导航{{ $location.hash }}
+    </a>
+  </li>
+  <li ng-repeat="item in menubar" ng-click="toggleMenu(item)" ng-class="{active: item.active}">
+    <a href="">
+      <i class="fa fa-cog"></i>{{ item.name }}
+      <i class="fa pull-right" ng-class="{'fa-angle-right': !item.active, 'fa-angle-down': item.active}"></i>
+    </a>
+    <ul class="sub-menu list-unstyled" ng-click="$event.stopPropagation()">
+      <li ng-repeat="menu in item.menus" ui-sref-active="active">
+        <a ng-href="{{ menu.href }}">{{ menu.name }}</a>
+      </li>
+    </ul>
+  </li>
+</ul>

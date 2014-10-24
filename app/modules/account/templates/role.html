@@ -1,0 +1,74 @@
+<div class="account-module">
+  <div class="page-header">
+    <h1>角色管理</h1>
+  </div>
+  <div class="filter clearfix">
+    <div class="row">
+      <div class="col-sm-9">
+        <form class="form-inline" ng-submit="search()">
+          <div class="form-group mb10 mr10">
+            <label class="control-label text-normal text-nowrap">角色名称：</label>
+            <input type="text" class="form-control" ng-model="name" />
+          </div>
+          <div class="mb10 mr10">
+            <button type="submit" class="btn btn-primary ml10" ng-disabled="form.$invalid">
+            <i class="fa fa-search"></i> 搜索
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-3 text-right">
+        <a class="btn btn-success" ng-click="create()"><i class="fa fa-plus"></i> 添加</a>
+      </div>
+    </div>
+  </div>
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>角色名</th>
+        <th>权限</th>
+        <th>更新时间</th>
+        <th>更新人</th>
+        <th>创建时间</th>
+        <th>创建人</th>
+        <th>状态</th>
+        <th class="text-right">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="loading">
+        <td class="loading-holder" colspan="40">
+          <div class="text-center"><span class="loading"></span></div>
+        </td>
+      </tr>
+      <tr ng-if="total === 0">
+        <td colspan="40">
+          <div class="text-center">抱歉，没有相关数据</div>
+        </td>
+      </tr>
+      <tr ng-repeat="item in list">
+        <td>{{ item.name }}</td>
+        <td><a href="" ng-click="update(item)">查看</a></td>
+        <td>{{ item.update_at|date:'yyyy-MM-dd HH:mm' }}</td>
+        <td>{{ item.update_by }}</td>
+        <td>{{ item.create_at|date:'yyyy-MM-dd HH:mm' }}</td>
+        <td>{{ item.create_by }}</td>
+        <td ng-class="{'text-danger': item.status === 0}">{{ item.status|status }}</td>
+        <td class="text-right">
+          <a href="" ng-click="toggle(item)" ng-if="!item.toggling">{{ item.status|status }}</a>
+          <span class="loading-sm" ng-if="item.toggling"></span>
+          <i class="text-divider">|</i>
+          <a href="" ng-click="update(item)" ng-if="!item.updating">修改</a>
+          <span class="loading-sm" ng-if="item.updating"></span>
+          <i class="text-divider">|</i>
+          <a href="" ng-click="remove(item)" ng-if="!item.deleting">删除</a>
+          <span class="loading-sm" ng-if="item.deleting"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-right" ng-show="total">
+    <ul class="pagination-sm" pagination ng-model="page" items-per-page="size" total-items="total" ng-change="query()"></ul>
+  </div>
+</div>

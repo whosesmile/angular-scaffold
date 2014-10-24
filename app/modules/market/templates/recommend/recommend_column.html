@@ -1,0 +1,58 @@
+<div class="basis-module">
+  <div class="page-header">
+    <h1>推荐栏目管理</h1>
+  </div>
+  <div class="filter clearfix">
+    <div class="row">
+      <div class="col-sm-9">
+        <form class="form-inline">
+          <div class="form-group mb10 mr10">
+            <label class="control-label"><i class="text-danger">*</i> 社区：</label>
+            <select class="form-control" ng-model="project_id" ng-change="query()" ng-options="p.id as p.name for p in projects" required></select>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-3 text-right">
+        <a class="btn btn-success" ng-click="create()"><i class="fa fa-plus"></i> 添加</a>
+      </div>
+    </div>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>名称</th>
+        <th>创建者</th>
+        <th>创建时间</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="!list">
+        <td class="loading-holder" colspan="40">
+          <div class="text-center"><span class="loading"></span></div>
+        </td>
+      </tr>
+      <tr ng-if="total === 0">
+        <td colspan="40">
+          <div class="text-center">抱歉，没有相关数据</div>
+        </td>
+      </tr>
+      <tr ng-repeat="item in list" ng-hide="item.$hide">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.createName }}</td>
+        <td>{{ item.createAt|date:'yyyy-MM-dd HH:mm' }}</td>
+        <td class="text-center">
+          <a href="" ng-click="update(item)" ng-if="!item.processing">修改</a>
+          <i class="text-divider">|</i>
+          <a href="" ng-click="remove(item)" ng-if="!item.processing">删除</a>
+          <span class="loading-sm" ng-if="item.processing"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-right" ng-show="!(list|empty)">
+  <ul class="pagination-sm" pagination ng-model="page" items-per-page="size" total-items="total" ng-change="query()"></ul>
+</div>
+</div>
